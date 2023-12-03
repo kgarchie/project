@@ -11,14 +11,15 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  user_id   String   @unique
-  email     String   @unique
+  id        Int       @id @default(autoincrement())
+  user_id   String    @unique
+  email     String    @unique
   name      String
   password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   Token     Token[]
+  Meeting   Meeting[]
 }
 
 model Token {
@@ -29,4 +30,17 @@ model Token {
   isValid   Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Meeting {
+  id          Int      @id @default(autoincrement())
+  hostId      Int
+  Host        User     @relation(fields: [hostId], references: [id])
+  title       String
+  description String
+  keywords    String?
+  transcript  String?
+  summary     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

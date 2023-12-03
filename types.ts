@@ -23,6 +23,12 @@ export enum statusCodes {
     transcriptionSuccess = 205,
     summaryUpdate = 206,
     summaryError = 505,
+
+    meetingCreated = 220,
+    joinedMeeting = 221,
+    newUserSdp = 222,
+    membersSdp = 223,
+    meetingNotFound = 204,
     mp3conversionError = 506,
     transcriptionError = 507,
     fatalError = 500
@@ -50,4 +56,23 @@ export type User = {
     user_id: string;
     email: string;
     name: string;
+}
+
+export enum messageType{
+    JOIN_MEETING,
+    LEAVE_MEETING,
+    CREATE_MEETING,
+    DELETE_MEETING,
+    MESSAGE,
+    ERROR,
+
+    SDP_OFFER,
+    SDP_ANSWER,
+    ICE_CANDIDATE,
+    IDENTITY
+}
+
+export type SocketResponse = {
+    type: messageType,
+    data: any
 }

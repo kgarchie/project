@@ -5,7 +5,7 @@ import fs from "fs";
 import { GPTChat, HttpResponse, statusCodes } from "~/types";
 import { transcribe } from "~/speech/transcribe.python";
 
-class Stream {
+export class Stream {
     private headersSent: boolean;
     private _event: H3Event;
 

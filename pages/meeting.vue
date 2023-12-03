@@ -1,878 +1,386 @@
 <template>
-    <div class="wrapper">
-        <div class="app-container">
-            <button class="mode-switch">
-                <svg fill="none" stroke="#fbb046" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    class="sun feather feather-sun" viewBox="0 0 24 24">
-                    <defs />
-                    <circle cx="12" cy="12" r="5" />
-                    <path
-                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                </svg>
-                <svg fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    class="moon feather feather-moon" viewBox="0 0 24 24">
-                    <defs />
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-                </svg>
-            </button>
-            <div class="left-side">
-                <div class="navigation">
-                    <a href="#" class="nav-link icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" viewBox="0 0 24 24">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-                            <path d="M9 22V12h6v10" />
-                        </svg>
-                    </a>
-                    <a href="#" class="nav-link icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-message-square">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="nav-link icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="nav-link icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-hard-drive">
-                            <line x1="22" y1="12" x2="2" y2="12" />
-                            <path
-                                d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
-                            <line x1="6" y1="16" x2="6.01" y2="16" />
-                            <line x1="10" y1="16" x2="10.01" y2="16" />
-                        </svg>
-                    </a>
-                    <a href="#" class="nav-link icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-users">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                            <circle cx="9" cy="7" r="4" />
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        </svg>
-                    </a>
-                    <a href="#" class="nav-link icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder"
-                            viewBox="0 0 24 24">
-                            <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="nav-link icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"
-                            viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="3" />
-                            <path
-                                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="app-main">
-                <div class="video-call-wrapper">
-                    <div class="video-participant">
-                        <div class="participant-actions">
-                            <button class="btn-mute"></button>
-                            <button class="btn-camera"></button>
-                        </div>
-                        <a href="#" class="name-tag">Andy Will</a>
-                        <img src="https://images.unsplash.com/photo-1566821582776-92b13ab46bb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                            alt="participant">
-                    </div>
-                    <div class="video-participant">
-                        <div class="participant-actions">
-                            <button class="btn-mute"></button>
-                            <button class="btn-camera"></button>
-                        </div>
-                        <a href="#" class="name-tag">Emmy Lou</a>
-                        <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                            alt="participant">
-                    </div>
-                    <div class="video-participant">
-                        <div class="participant-actions">
-                            <button class="btn-mute"></button>
-                            <button class="btn-camera"></button>
-                        </div>
-                        <a href="#" class="name-tag">Tim Russel</a>
-                        <img src="https://images.unsplash.com/photo-1576110397661-64a019d88a98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80"
-                            alt="participant">
-                    </div>
-                    <div class="video-participant">
-                        <div class="participant-actions">
-                            <button class="btn-mute"></button>
-                            <button class="btn-camera"></button>
-                        </div>
-                        <a href="#" class="name-tag">Jessica Bell</a>
-                        <img src="https://images.unsplash.com/photo-1600207438283-a5de6d9df13e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
-                            alt="participant">
-                    </div>
-                    <div class="video-participant">
-                        <div class="participant-actions">
-                            <button class="btn-mute"></button>
-                            <button class="btn-camera"></button>
-                        </div>
-                        <a href="#" class="name-tag">Ryan Patrick</a>
-                        <img src="https://images.unsplash.com/photo-1581824283135-0666cf353f35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1276&q=80"
-                            alt="participant">
-                    </div>
-                    <div class="video-participant">
-                        <div class="participant-actions">
-                            <button class="btn-mute"></button>
-                            <button class="btn-camera"></button>
-                        </div>
-                        <a href="#" class="name-tag">Tina Cate</a>
-                        <img src="https://images.unsplash.com/photo-1542596594-649edbc13630?ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80"
-                            alt="participant">
-                    </div>
-                </div>
-            </div>
-            <div class="right-side">
-                <button class="btn-close-right">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-x-circle"
-                        viewBox="0 0 24 24">
-                        <defs></defs>
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M15 9l-6 6M9 9l6 6"></path>
-                    </svg>
-                </button>
-                <div class="chat-container">
-                    <div class="chat-header">
-                        <button class="chat-header-button">
-                            Live Chat
-                        </button>
-                    </div>
-                    <div class="chat-area">
-                        <div class="message-wrapper">
-                            <div class="profile-picture">
-                                <img src="https://images.unsplash.com/photo-1581824283135-0666cf353f35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1276&q=80"
-                                    alt="pp">
-                            </div>
-                            <div class="message-content">
-                                <p class="name">Ryan Patrick</p>
-                                <div class="message">Helloo team!😍</div>
-                            </div>
-                        </div>
-                        <div class="message-wrapper">
-                            <div class="profile-picture">
-                                <img src="https://images.unsplash.com/photo-1566821582776-92b13ab46bb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                                    alt="pp">
-                            </div>
-                            <div class="message-content">
-                                <p class="name">Andy Will</p>
-                                <div class="message">Hello! Can you hear me?🤯 <a class="mention">@ryanpatrick</a></div>
-                            </div>
-                        </div>
-                        <div class="message-wrapper">
-                            <div class="profile-picture">
-                                <img src="https://images.unsplash.com/photo-1600207438283-a5de6d9df13e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
-                                    alt="pp">
-                            </div>
-                            <div class="message-content">
-                                <p class="name">Jessica Bell</p>
-                                <div class="message">Hi team! Let's get started it.</div>
-                            </div>
-                        </div>
-                        <div class="message-wrapper reverse">
-                            <div class="profile-picture">
-                                <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                    alt="pp">
-                            </div>
-                            <div class="message-content">
-                                <p class="name">Emmy Lou</p>
-                                <div class="message">Good morning!🌈</div>
-                            </div>
-                        </div>
-                        <div class="message-wrapper">
-                            <div class="profile-picture">
-                                <img src="https://images.unsplash.com/photo-1576110397661-64a019d88a98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80"
-                                    alt="pp">
-                            </div>
-                            <div class="message-content">
-                                <p class="name">Tim Russel</p>
-                                <div class="message">New design document⬇️</div>
-                                <div class="message-file">
-                                    <div class="icon sketch">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                            <path fill="#ffd54f" d="M96 191.02v-144l160-30.04 160 30.04v144z" />
-                                            <path fill="#ffecb3" d="M96 191.02L256 16.98l160 174.04z" />
-                                            <path fill="#ffa000" d="M0 191.02l256 304 256-304z" />
-                                            <path fill="#ffca28" d="M96 191.02l160 304 160-304z" />
-                                            <g fill="#ffc107">
-                                                <path d="M0 191.02l96-144v144zM416 47.02v144h96z" />
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <div class="file-info">
-                                        <div class="file-name">NewYear.sketch</div>
-                                        <div class="file-size">120 MB</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message-wrapper">
-                            <div class="profile-picture">
-                                <img src="https://images.unsplash.com/photo-1581824283135-0666cf353f35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1276&q=80"
-                                    alt="pp">
-                            </div>
-                            <div class="message-content">
-                                <p class="name">Ryan Patrick</p>
-                                <div class="message">Hi team!❤️</div>
-                                <div class="message">I downloaded the file <a class="mention">@timrussel</a></div>
-                            </div>
-                        </div>
-                        <div class="message-wrapper reverse">
-                            <div class="profile-picture">
-                                <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                    alt="pp">
-                            </div>
-                            <div class="message-content">
-                                <p class="name">Emmy Lou</p>
-                                <div class="message">Woooww! Awesome❤️</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chat-typing-area-wrapper">
-                        <div class="chat-typing-area">
-                            <input type="text" placeholder="Type your meesage..." class="chat-input">
-                            <button class="send-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"
-                                    viewBox="0 0 24 24">
-                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="participants">
-                    <div class="participant profile-picture">
-                        <img src="https://images.unsplash.com/photo-1576110397661-64a019d88a98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80"
-                            alt="pp">
-                    </div>
-                    <div class="participant profile-picture">
-                        <img src="https://images.unsplash.com/photo-1566821582776-92b13ab46bb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                            alt="pp">
-                    </div>
-                    <div class="participant profile-picture">
-                        <img src="https://images.unsplash.com/photo-1600207438283-a5de6d9df13e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
-                            alt="pp">
-                    </div>
-                    <div class="participant profile-picture">
-                        <img src="https://images.unsplash.com/photo-1581824283135-0666cf353f35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1276&q=80"
-                            alt="pp">
-                    </div>
-                    <div class="participant-more">2+</div>
-                </div>
-            </div>
-            <button class="expand-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-message-circle">
-                    <path
-                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                </svg>
-            </button>
+  <Title>Meeting</Title>
+  <div class="wrapper">
+    <div class="app-container">
+      <div class="left-side">
+        <div class="navigation">
+          <a href="#" class="nav-link icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-home" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <path d="M9 22V12h6v10"/>
+            </svg>
+          </a>
+          <a href="#" class="nav-link icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-message-square">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </a>
+          <a href="#" class="nav-link icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call"
+                 viewBox="0 0 24 24">
+              <path
+                  d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </a>
+          <a href="#" class="nav-link icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-hard-drive">
+              <line x1="22" y1="12" x2="2" y2="12"/>
+              <path
+                  d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>
+              <line x1="6" y1="16" x2="6.01" y2="16"/>
+              <line x1="10" y1="16" x2="10.01" y2="16"/>
+            </svg>
+          </a>
+          <a href="#" class="nav-link icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-users">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </a>
+          <a href="#" class="nav-link icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder"
+                 viewBox="0 0 24 24">
+              <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+            </svg>
+          </a>
+          <a href="#" class="nav-link icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"
+                 viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"/>
+              <path
+                  d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+            </svg>
+          </a>
         </div>
+      </div>
+      <div class="app-main">
+        <div class="video-call-wrapper">
+          <Feed :feed="{image_url: self.image_url, srcObject: self.srcObject}">
+            <div class="participant-actions">
+              <button class="btn-mute"></button>
+              <button class="btn-camera"></button>
+            </div>
+          </Feed>
+          <Feed
+              :feed="{image_url: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', video_url: null}">
+            <div class="participant-actions">
+              <button class="btn-mute"></button>
+              <button class="btn-camera"></button>
+            </div>
+          </Feed>
+        </div>
+      </div>
     </div>
+  </div>
+  <button class="tests" @click="start">Start</button>
+  <button class="tests" @click="end">End</button>
+  <Footer show-default="false">
+    <li>
+      <div class="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+              d="M16.4259 17.839L21.1935 22.6066L22.6077 21.1924L2.80874 1.3934L1.39453 2.80761L7.00113 8.41421V10C7.00113 12.7614 9.23971 15 12.0011 15C12.4835 15 12.9499 14.9317 13.3912 14.8042L14.9413 16.3544C14.0474 16.7688 13.0513 17 12.0011 17C8.47466 17 5.55725 14.3923 5.07202 11H3.05606C3.51721 15.1716 6.82952 18.4839 11.0011 18.9451V23H13.0011V18.9451C14.2351 18.8087 15.3939 18.4228 16.4259 17.839ZM11.5538 12.9669C10.2551 12.7727 9.22843 11.7461 9.03426 10.4473L11.5538 12.9669ZM19.3757 15.1604L17.9333 13.7179C18.4417 12.9084 18.789 11.9874 18.9302 11H20.9462C20.7763 12.5366 20.2197 13.9565 19.3757 15.1604ZM16.4668 12.2514L14.9183 10.703C14.9725 10.4775 15.0011 10.2421 15.0011 10V6C15.0011 4.34315 13.658 3 12.0011 3C10.7069 3 9.60408 3.81956 9.18335 4.96802L7.68672 3.47139C8.55524 1.99268 10.1623 1 12.0011 1C14.7626 1 17.0011 3.23858 17.0011 6V10C17.0011 10.8099 16.8086 11.5748 16.4668 12.2514Z"></path>
+        </svg>
+      </div>
+    </li>
+    <li>
+      <div class="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+              d="M19.5869 21.0002H3.00113C2.44885 21.0002 2.00113 20.5524 2.00113 20.0002V6.00016C2.00113 5.44787 2.44885 5.00016 3.00113 5.00016H3.58692L1.39453 2.80777L2.80874 1.39355L22.6077 21.1925L21.1935 22.6068L19.5869 21.0002ZM5.58692 7.00016H4.00113V19.0002H17.5869L15.4063 16.8196C14.4698 17.5589 13.287 18.0002 12.0011 18.0002C8.96357 18.0002 6.50113 15.5377 6.50113 12.5002C6.50113 11.2143 6.94239 10.0315 7.68173 9.09497L5.58692 7.00016ZM9.11149 10.5247C8.72641 11.0869 8.50113 11.7672 8.50113 12.5002C8.50113 14.4332 10.0681 16.0002 12.0011 16.0002C12.734 16.0002 13.4143 15.7749 13.9766 15.3898L9.11149 10.5247ZM22.0011 17.786L20.0011 15.786V7.00016H16.1727L14.1727 5.00016H9.82956L9.52245 5.30727L8.10823 3.89306L9.00113 3.00016H15.0011L17.0011 5.00016H21.0011C21.5534 5.00016 22.0011 5.44787 22.0011 6.00016V17.786ZM11.2643 7.04909C11.5053 7.01682 11.7513 7.00016 12.0011 7.00016C15.0387 7.00016 17.5011 9.46259 17.5011 12.5002C17.5011 12.75 17.4845 12.996 17.4522 13.237L15.1143 10.8991C14.7804 10.2512 14.2501 9.72089 13.6022 9.38698L11.2643 7.04909Z"></path>
+        </svg>
+      </div>
+    </li>
+  </Footer>
 </template>
 <style scoped lang="scss">
 button {
-    outline: none;
-    transition: .2s;
-    cursor: pointer;
+  outline: none;
+  transition: .2s;
+  cursor: pointer;
 
-    &:hover {
-        opacity: .7;
-    }
+  &:hover {
+    opacity: .7;
+  }
 }
 
 .wrapper {
-    --app-background: #eaebf5;
-    --chat-background: #fff;
-    --link-color: #c0c1c5;
-    --navigation-bg: #fff;
-    --navigation-box-shadow: 0 2px 6px 0 rgba(136, 148, 171, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
-    --main-color: #3d42df;
-    --message-bg: #f3f4f9;
-    --message-bg-2: #3d42df;
-    --message-text: #2c303a;
-    --placeholder-text: #a2a4bc;
-    --button-bg: #fff;
+  --app-background: #eaebf5;
+  --chat-background: #fff;
+  --link-color: #c0c1c5;
+  --navigation-bg: #fff;
+  --navigation-box-shadow: 0 2px 6px 0 rgba(136, 148, 171, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
+  --main-color: #3d42df;
+  --message-bg: #f3f4f9;
+  --message-bg-2: #3d42df;
+  --message-text: #2c303a;
+  --placeholder-text: #a2a4bc;
+  --button-bg: #fff;
 
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .app-container {
-    background-color: var(--app-background);
-    width: 100%;
-    height: 100%;
-    font-family: 'DM Sans', sans-serif;
-    display: flex;
-    transition: .2s;
-    
-    padding: 5rem 2rem;
+  background-color: var(--app-background);
+  width: 100%;
+  height: 100%;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  transition: .2s;
+
+  padding: 5rem 2rem;
 }
 
 .left-side {
-    position: relative;
-    padding: 16px;
-    flex-basis: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  position: relative;
+  padding: 16px;
+  flex-basis: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .navigation {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--navigation-bg);
-    padding: 24px;
-    border-radius: 10px;
-    box-shadow: var(--navigation-box-shadow);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--navigation-bg);
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: var(--navigation-box-shadow);
 }
 
-.nav-link+.nav-link {
-    margin-top: 32px;
+.nav-link + .nav-link {
+  margin-top: 32px;
 }
 
 .nav-link:hover svg {
-    color: #3d42df;
+  color: #3d42df;
 }
 
 .icon svg {
-    width: 24px;
-    height: 24px;
-    color: var(--link-color);
-    transition: .2s ease-in;
-}
-
-.right-side {
-    margin-left: auto;
-    flex-basis: 400px;
-    height: 100%;
-    padding: 16px;
-    position: relative;
-    transition: all 300ms cubic-bezier(0.190, 1.000, 0.560, 1.000);
-
-    &.show {
-        display: block;
-        transform: translateX(0);
-    }
-}
-
-.chat-container {
-    background-color: var(--chat-background);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    height: calc(100% - 72px);
-}
-
-.chat-header {
-    padding: 16px;
-    border-bottom: 1px solid #f5f5f5;
-}
-
-.chat-header-button {
-    background-color: var(--main-color);
-    padding: 12px 16px 12px 40px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg' fill='%23fff'%3E%3Cpath d='M479.9 187.52l-90.19 68.53v-52.6a20 20 0 00-20-20H20a20 20 0 00-20 20V492a20 20 0 0020 20h349.71a20 20 0 0020-20v-52.6l90.18 68.52c13.05 9.91 32.1.67 32.1-15.92V203.45c0-16.5-18.94-25.92-32.1-15.93zM349.7 472H40V223.45h309.71zM472 451.68l-82.29-62.53V306.3L472 243.77zM87.96 79.24C129.62 28.88 190.86 0 256 0c65.13 0 126.37 28.88 168.03 79.24a20 20 0 01-30.82 25.5A177.6 177.6 0 00256 40a177.6 177.6 0 00-137.21 64.73 20 20 0 11-30.83-25.5zm240.36 32.21a20 20 0 11-21.02 34.03 97.57 97.57 0 00-51.3-14.53 97.6 97.6 0 00-51.31 14.53 20 20 0 11-21.02-34.03A137.53 137.53 0 01256 90.95c25.59 0 50.6 7.09 72.32 20.5zm0 0'/%3E%3C/svg%3E%0A");
-    background-repeat: no-repeat;
-    background-position: center left 12px;
-    background-size: 16px;
-    font-size: 14px;
-}
-
-.chat-area {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px;
+  width: 24px;
+  height: 24px;
+  color: var(--link-color);
+  transition: .2s ease-in;
 }
 
 .profile-picture {
-    border-radius: 8px;
-    width: 32px;
-    height: 32px;
-    overflow: hidden;
-    margin-right: 12px;
-    flex-shrink: 0;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  margin-right: 12px;
+  flex-shrink: 0;
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-}
-
-.message-wrapper {
-    display: flex;
-}
-
-.name {
-    margin: 0;
-    line-height: 16px;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--message-text);
-}
-
-.message {
-    margin-top: 8px;
-    background-color: var(--message-bg);
-    padding: 8px 16px;
-    border-radius: 0 12px 12px 12px;
-    font-size: 12px;
-    line-height: 16px;
-    max-width: calc(100% - 32px);
-    color: var(--message-text);
-}
-
-.message-wrapper {
-    padding: 16px 0;
-
-    &.reverse {
-        flex-direction: row-reverse;
-
-        .message {
-            background-color: var(--message-bg-2);
-            color: #fff;
-            margin-left: auto;
-            border-radius: 16px 0px 16px 16px;
-        }
-
-        .profile-picture {
-            margin-right: 0px;
-            margin-left: 12px;
-        }
-
-        .name {
-            text-align: right;
-        }
-    }
-}
-
-.message-file {
-    border: 1px solid var(--message-bg);
+  img {
     width: 100%;
-    margin-top: 16px;
-    border-radius: 4px;
-    padding: 8px;
-    display: flex;
-
-    .sketch {
-        border-radius: 4px;
-        padding: 2px;
-        background-color: #fdeee2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 32px;
-        height: 32px;
-
-        svg {
-            width: 20px;
-            height: 20px;
-        }
-    }
-}
-
-.file-info {
-    flex: 1;
-    padding: 0 40px 0 8px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23b8b8b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-download' viewBox='0 0 24 24'%3E%3Cpath d='M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3'/%3E%3C/svg%3E%0A");
-    background-position: center right 12px;
-    background-size: 20px;
-    background-repeat: no-repeat;
-    font-size: 12px;
-}
-
-.file-name {
-    color: var(--message-text);
-}
-
-.file-size {
-    color: #b8b8b8;
-}
-
-.mention {
-    color: #7c80fd;
-}
-
-.chat-typing-area-wrapper {
-    padding: 16px;
-}
-
-.chat-typing-area {
-    display: flex;
-    border-radius: 10px;
-    padding: 8px;
-    box-shadow: var(--navigation-box-shadow);
-    background-color: var(--message-bg);
-
-    .dark & {
-        box-shadow: none;
-    }
-}
-
-.chat-input {
-    border: none;
-    font-size: 14px;
-    line-height: 24px;
-    outline: none;
-    color: var(--message-text);
-    flex: 1;
-    background-color: transparent;
-
-    &:placeholder {
-        color: var(--placeholder-text);
-    }
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .send-button {
-    color: #fff;
-    background-color: var(--main-color);
-    border-radius: 8px;
-    border: none;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: #fff;
+  background-color: var(--main-color);
+  border-radius: 8px;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    svg {
-        width: 20px;
-        height: 20px;
-    }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .app-main {
-    flex: 1;
-    width: 100%;
-    padding: 72px 32px 16px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  flex: 1;
+  width: 100%;
+  padding: 72px 32px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .video-call-wrapper {
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.video-participant {
-    width: 33.3%;
-    height: 50%;
-    position: relative;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  width: 100%;
+  height: 100%;
+  margin-top: -5%;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .name-tag {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    font-size: 12px;
-    color: #fff;
-    background-color: rgba(0, 15, 47, 0.5);
-    border-radius: 4px;
-    padding: 4px 12px;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgba(0, 15, 47, 0.5);
+  border-radius: 4px;
+  padding: 4px 12px;
 }
 
 .participant-actions {
-    position: absolute;
-    display: flex;
-    left: 12px;
-    top: 12px;
+  position: absolute;
+  display: flex;
+  left: 12px;
+  top: 12px;
 }
 
 .btn-mute,
 .btn-camera {
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
-    background-color: rgba(0, 15, 47, 0.5);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 16px;
-    border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: rgba(0, 15, 47, 0.5);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  border: none;
 }
 
 .btn-mute {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mic-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M9 9v3a3 3 0 005.12 2.12M15 9.34V4a3 3 0 00-5.94-.6'/%3E%3Cpath d='M17 16.95A7 7 0 015 12v-2m14 0v2a7 7 0 01-.11 1.23M12 19v4M8 23h8'/%3E%3C/svg%3E%0A");
-    margin-right: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mic-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M9 9v3a3 3 0 005.12 2.12M15 9.34V4a3 3 0 00-5.94-.6'/%3E%3Cpath d='M17 16.95A7 7 0 015 12v-2m14 0v2a7 7 0 01-.11 1.23M12 19v4M8 23h8'/%3E%3C/svg%3E%0A");
+  margin-right: 4px;
 }
 
 .btn-camera {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-camera-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M21 21H3a2 2 0 01-2-2V8a2 2 0 012-2h3m3-3h6l2 3h4a2 2 0 012 2v9.34m-7.72-2.06a4 4 0 11-5.56-5.56'/%3E%3C/svg%3E%0A");
-}
-
-.video-call-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 64px;
-    max-width: 500px;
-}
-
-.video-action-button {
-    background-repeat: no-repeat;
-    background-size: 24px;
-    border: none;
-    height: 48px;
-    margin: 0 8px;
-    box-shadow: var(--navigation-box-shadow);
-    border-radius: 8px;
-    width: 48px;
-    cursor: pointer;
-    outline: none;
-    background-color: var(--button-bg);
-
-    &.mic {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%232c303a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mic-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M9 9v3a3 3 0 005.12 2.12M15 9.34V4a3 3 0 00-5.94-.6'/%3E%3Cpath d='M17 16.95A7 7 0 015 12v-2m14 0v2a7 7 0 01-.11 1.23M12 19v4M8 23h8'/%3E%3C/svg%3E%0A");
-        background-position: center;
-    }
-
-    &.camera {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%232c303a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-camera-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M21 21H3a2 2 0 01-2-2V8a2 2 0 012-2h3m3-3h6l2 3h4a2 2 0 012 2v9.34m-7.72-2.06a4 4 0 11-5.56-5.56'/%3E%3C/svg%3E%0A");
-        background-position: center;
-    }
-
-    &.maximize {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%232c303a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-maximize' viewBox='0 0 24 24'%3E%3Cpath d='M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3'/%3E%3C/svg%3E%0A");
-        background-position: center;
-    }
-
-    &.endcall {
-        color: #ff1932;
-        width: auto;
-        font-size: 14px;
-        padding-left: 42px;
-        padding-right: 12px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff1932' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone-missed'%3E%3Cline x1='23' y1='1' x2='17' y2='7'/%3E%3Cline x1='17' y1='1' x2='23' y2='7'/%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
-        background-size: 20px;
-        background-position: center left 12px;
-    }
-
-    &.magnifier {
-        padding: 0 12px;
-        display: flex;
-        align-items: center;
-        width: auto;
-        flex-grow: 0;
-        color: #2c303a;
-
-        svg {
-            width: 20px;
-            flex-shrink: 0;
-        }
-
-        span {
-            display: block;
-            margin: 0 16px;
-        }
-    }
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-camera-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M21 21H3a2 2 0 01-2-2V8a2 2 0 012-2h3m3-3h6l2 3h4a2 2 0 012 2v9.34m-7.72-2.06a4 4 0 11-5.56-5.56'/%3E%3C/svg%3E%0A");
 }
 
 .participants {
-    display: flex;
-    background-color: var(--button-bg);
-    box-shadow: var(--navigation-box-shadow);
-    margin-top: 16px;
-    padding: 12px;
-    border-radius: 8px;
-    max-width: 232px;
-    margin-left: auto;
-}
-
-.participant-more {
-    background-color: #e1e0e1;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #636181;
-    font-weight: 700;
-    border-radius: 8px;
-    min-width: 32px;
-}
-
-.mode-switch {
-    z-index: 1;
-    position: absolute;
-    top: 20px;
-    left: 36px;
-    background-color: var(--chat-background);
-    border: none;
-    color: #ddd;
-    outline: none;
-    cursor: pointer;
-    box-shadow: var(--navigation-box-shadow);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    transform-origin: center;
-
-    svg {
-        width: 0;
-        height: 24px;
-        transition: all .3s ease-in;
-        transform-origin: center;
-    }
-
-    .moon {
-        opacity: 0;
-    }
-
-    .sun {
-        width: 24px;
-    }
-}
-
-.dark .moon {
-    opacity: 1;
-    width: 24px;
-}
-
-.dark .sun {
-    opacity: 0;
-    width: 0;
-}
-
-.expand-btn {
-    position: absolute;
-    right: 32px;
-    top: 24px;
-    border: none;
-    background-color: var(--chat-background);
-    border-radius: 4px;
-    padding: none;
-    color: var(--message-text);
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-
-    display: none;
-
-    &.show {
-        display: flex;
-    }
-}
-
-.btn-close-right {
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    color: var(--light-font);
-    outline: none;
-    cursor: pointer;
-
-    display: none;
+  display: flex;
+  background-color: var(--button-bg);
+  box-shadow: var(--navigation-box-shadow);
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  max-width: 232px;
+  margin-left: auto;
 }
 
 @media screen and (max-width: 900px) {
-    .expand-btn {
-        display: block;
-    }
+  .expand-btn {
+    display: block;
+  }
 
-    .right-side {
-        position: absolute;
-        right: 0px;
-        background-color: var(--chat-background);
-        transform: translateX(100%);
-        z-index: 2;
-        width: 100%;
+  .right-side {
+    position: absolute;
+    right: 0px;
+    background-color: var(--chat-background);
+    transform: translateX(100%);
+    z-index: 2;
+    width: 100%;
 
-        &.show {
-            transform: translateX(0);
-        }
+    &.show {
+      transform: translateX(0);
     }
+  }
 
-    .btn-close-right {
-        display: block;
-    }
+  .btn-close-right {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 520px) {
-    .left-side {
-        display: none;
-    }
+  .left-side {
+    display: none;
+  }
 
-    .app-main {
-        padding: 72px 16px 16px 16px;
-    }
+  .app-main {
+    padding: 72px 16px 16px 16px;
+  }
 
-    .expand-btn {
-        right: 16px;
-    }
+  .expand-btn {
+    right: 16px;
+  }
 
-    .mode-switch {
-        left: 16px;
-    }
+  .mode-switch {
+    left: 16px;
+  }
+}
+</style>
+<script setup lang="ts">
+const self = reactive<{
+  image_url: string
+  srcObject: MediaStream | null
+}>({
+  image_url: 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+  srcObject: null
+})
 
-    .video-call-actions {
-        padding-top: 32px;
-    }
+async function startStream() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: false,
+    audio: true
+  })
+  self.srcObject = stream
 
-    .video-action-button {
-        width: 32px;
-        height: 32px;
-        background-size: 14px;
-        margin: 0 4px;
-    }
-
-    .video-action-button.endcall {
-        background-size: 14px;
-        font-size: 12px;
-        padding-left: 36px;
-    }
-
-    .video-action-button.magnifier svg {
-        width: 14px;
-    }
-
-    .video-action-button.magnifier span {
-        margin: 0 4px;
-        font-size: 12px;
-    }
+  return stream
 }
 
-@media screen and (max-width: 520px) and (max-height: 720px) {
-    .video-participant {
-        width: 50%;
-        height: 33.3%;
-    }
-}</style>
+async function endStream() {
+  if (self.srcObject) {
+    self.srcObject.getTracks().forEach(track => track.stop())
+    self.srcObject = null
+  }
+}
+
+async function createSdpOffer(){
+  const peerConnection = new RTCPeerConnection()
+  const stream = await startStream()
+
+  stream.getTracks().forEach(track => {
+    peerConnection.addTrack(track, stream)
+  })
+
+  const offer = await peerConnection.createOffer()
+  await peerConnection.setLocalDescription(offer)
+
+  return peerConnection.localDescription
+}
+
+async function createSdpAnswer(offer: RTCSessionDescriptionInit){
+  const peerConnection = new RTCPeerConnection()
+  const stream = await startStream()
+
+  stream.getTracks().forEach(track => {
+    peerConnection.addTrack(track, stream)
+  })
+
+  await peerConnection.setRemoteDescription(offer)
+  const answer = await peerConnection.createAnswer()
+  await peerConnection.setLocalDescription(answer)
+
+  return peerConnection.localDescription
+}
+
+
+</script>

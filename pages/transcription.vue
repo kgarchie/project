@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { HttpResponse } from "~/types";
 import { statusCodes } from "~/types";
+import {readStream} from "~/helpers.client";
 
 const summary = ref('')
 const transcription = ref('')
@@ -18,21 +19,6 @@ if (!fileUrl) {
     window.history.back()
   }
 }
-
-const decoder = new TextDecoder()
-
-async function readStream(reader: ReadableStreamDefaultReader, callback: Function | null = null) {
-  const { done, value } = await reader.read()
-
-  if (done) return
-
-  const text = decoder.decode(value)
-
-  if (callback) callback(text)
-
-  return readStream(reader, callback)
-}
-
 
 async function getTranscription() {
   const transcriptionResponse = await $fetch('/api/transcriptions/transcript', {

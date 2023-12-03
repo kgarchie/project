@@ -1,7 +1,7 @@
 <template>
     <nav class="footer">
-        <ul>
-            <li>
+        <ul ref="links">
+            <li v-if="props.showDefault">
                 <NuxtLink class="button start" to="/start">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -10,16 +10,7 @@
                     </svg>
                 </NuxtLink>
             </li>
-            <li>
-                <NuxtLink class="button record" to="/record">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                            d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12C15 13.6569 13.6569 15 12 15Z">
-                        </path>
-                    </svg>
-                </NuxtLink>
-            </li>
-            <li>
+            <li v-if="props.showDefault">
                 <NuxtLink class="button upload" to="/upload">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -28,23 +19,15 @@
                     </svg>
                 </NuxtLink>
             </li>
-            <li class="video-call-actions">
-                <button class="video-action-button mic" @click="$emit('toggle-mic')"></button>
-            </li>
-            <li>
-                <button class="video-action-button camera" @click="$emit('toggle-camera')"></button>
-            </li>
-            <li>
-                <button class="video-action-button endcall" @click="$emit('leave')">Leave</button>
-            </li>
+            <slot/>
         </ul>
     </nav>
 </template>
 <script setup lang="ts">
 const props = defineProps({
-    showVideoActions: {
-        type: Boolean,
-        default: false
-    }
+  showDefault: {
+    type: Boolean,
+    default: () => true
+  }
 })
 </script>

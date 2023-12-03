@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <Nav/>
+    <Footer/>
 </template>
 <script setup>
 import { userIsAuthenticated } from '~/helpers.client';
