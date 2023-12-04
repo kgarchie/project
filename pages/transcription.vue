@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { HttpResponse } from "~/types";
-import { statusCodes } from "~/types";
+import type {HttpResponse} from "~/types";
+import {statusCodes} from "~/types";
 import {readStream} from "~/helpers.client";
 
 const summary = ref('')
@@ -11,7 +11,10 @@ const isTranscriptionDone = ref(false)
 const isSummaryFetched = ref(false)
 
 const route = useRoute()
-const fileUrl = route.query.url
+const details = route.query.url
+
+const urlObj = JSON.parse(decodeURIComponent(details?.toString() || '')) as {fileUrl: string; meetingId: string}
+const fileUrl = urlObj?.fileUrl ?? null
 
 if (!fileUrl) {
   if (process.client) {
@@ -41,10 +44,10 @@ async function getTranscription() {
   await readStream(transcriptionReader, (text: string) => {
     try {
       const data = text
-        .replace(/\n/g, '')
-        .replace(/}{/g, '}\n{')
-        .split('\n')
-        .filter(line => line !== '')
+          .replace(/\n/g, '')
+          .replace(/}{/g, '}\n{')
+          .split('\n')
+          .filter(line => line !== '')
 
       res = data.map(line => JSON.parse(line))
 
@@ -111,10 +114,10 @@ async function getSummaries() {
     try {
       // TODO: is this really the best way to parse the chunks json?
       const data = text
-        .replace(/\n/g, '')
-        .replace(/}{/g, '}\n{')
-        .split('\n')
-        .filter(line => line !== '')
+          .replace(/\n/g, '')
+          .replace(/}{/g, '}\n{')
+          .split('\n')
+          .filter(line => line !== '')
       res = data.map(line => JSON.parse(line))
       for (const response of res) {
         switch (response.status) {
@@ -144,8 +147,23 @@ async function getSummaries() {
 }
 
 onMounted(async () => {
-  await getTranscription()
-  // await getSummaries()
+  await getTranscription().then(() => {
+    useFetch('/api/transcriptions/store/transcript', {
+      method: 'POST',
+      body: {text: transcription.value, meetingId: urlObj.meetingId}
+    }).catch(err => {
+      console.error(err)
+      alert('Transcription: Store error')
+    })
+  }).then(() => getSummaries().then(() => {
+    useFetch('/api/transcriptions/store/summary', {
+      method: 'POST',
+      body: {text: summary.value, meetingId: urlObj.meetingId}
+    }).catch(err => {
+      console.error(err)
+      alert('Summary: Store error')
+    })
+  }))
 })
 </script>
 
@@ -161,9 +179,9 @@ onMounted(async () => {
           <div class="pulse-bubble pulse-bubble-3"></div>
         </div>
       </div>
-      <MdRenderer :markdown-text="transcription" />
+      <MdRenderer :markdown-text="transcription"/>
       <h2>Summary</h2>
-      <MdRenderer :markdown-text="summary" class="summary" />
+      <MdRenderer :markdown-text="summary" class="summary"/>
       <div class="spinner-box" v-if="!isTranscriptionDone">
         <div class="three-quarter-spinner"></div>
       </div>

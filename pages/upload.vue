@@ -1,7 +1,12 @@
 <template>
   <Title>Upload</Title>
   <div id="container">
-    <div id="upload" class="modal" data-state="0" data-ready="false">
+    <GetTitle v-if="!meetingTitle.submitted" @input="meetingTitle.title = $event"
+              @next="meetingTitle.submitted = true"/>
+    <GetKey v-if="meetingTitle.submitted && !meetingKey.submitted" @input="meetingKey.key = $event"
+            @next="meetingKey.submitted = true"/>
+    <div id="upload" class="modal" data-state="0" data-ready="false"
+         v-if="(meetingKey.submitted && meetingTitle.submitted)">
       <div class="modal__header">
         <button class="modal__close-button" type="button">
           <svg class="modal__close-icon" viewBox="0 0 16 16" width="16px" height="16px" aria-hidden="true">
@@ -112,11 +117,27 @@
       </div>
     </div>
   </div>
+  <Footer/>
 </template>
 <script setup>
+import {userIsAuthenticated} from "~/helpers.client";
+
+// if (!userIsAuthenticated()) {
+//   navigateTo('/login')
+// }
+const meetingTitle = reactive({
+  title: '',
+  submitted: false
+})
+
+const meetingKey = reactive({
+  key: '',
+  submitted: false
+})
+
 class UploadModal {
   filename = "";
-  fileURL = "";
+  nextURL = null;
   isCopying = false;
   isUploading = false;
   progress = 0;
@@ -151,7 +172,7 @@ class UploadModal {
       this.isCopying = true;
       copyButton.style.width = `${copyButton.offsetWidth}px`;
       copyButton.disabled = true;
-      await navigator.clipboard.writeText(this.fileURL);
+      await navigator.clipboard.writeText(this.nextURL);
       copyButton.textContent = "Copied!";
       await new Promise(res => setTimeout(res, 1000));
       this.isCopying = false;
@@ -236,12 +257,13 @@ class UploadModal {
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4 && xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
-            this.fileURL = response.body[0];
+            this.nextURL = response.body;
           }
         };
 
         const formData = new FormData();
-
+        formData.append("title", meetingTitle.title);
+        formData.append("key", meetingKey.key);
         const upload_file = this.el?.querySelector("#file");
 
         if (upload_file?.files.length) {
@@ -286,8 +308,8 @@ class UploadModal {
     }
   }
 
-  percentEncodeUrl(){
-    return encodeURIComponent(this.fileURL)
+  percentEncodeUrl() {
+    return encodeURIComponent(JSON.stringify(this.nextURL))
   }
 
   async done() {

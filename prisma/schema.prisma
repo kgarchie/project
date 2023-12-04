@@ -33,14 +33,14 @@ model Token {
 }
 
 model Meeting {
-  id          Int      @id @default(autoincrement())
-  hostId      Int
-  Host        User     @relation(fields: [hostId], references: [id])
-  title       String
-  description String
-  keywords    String?
-  transcript  String?
-  summary     String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  User       User     @relation(fields: [userId], references: [id])
+  title      String
+  keywords   String
+  audio      String
+  transcript String?
+  summary    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
